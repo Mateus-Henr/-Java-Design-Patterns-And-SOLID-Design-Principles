@@ -18,12 +18,22 @@
     "Closed for Modification" in Java
     • This means that you should not modify code that was written in a base class since that code there is already
       "bug free", and it has already been tested as well.
+
+
+    The problem in the app's context
+    • Because both internet subscriber and phone subscriber are storing the same data for some fields, it's interesting
+      to apply the Open-Closed principle so that we can manage data better.
+
+
+    How to fix it
+    • We can create a base class that will be extended to the internet subscriber and the phone subscriber classes, so
+      we avoid duplicate data.
  */
 
 public class Main
 {
     public static void main(String[] args)
     {
-
+        // No code here.
     }
 }
