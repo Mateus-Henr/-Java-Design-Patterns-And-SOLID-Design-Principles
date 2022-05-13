@@ -47,9 +47,14 @@
 
     Conclusion
     It basically says that instead of instantiating dependencies ourselves, let somebody else give us the dependencies.
+
+
+    Curiosity
+    Spring and SpringBoot use dependency inversion.
  */
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Main
 {
@@ -58,7 +63,17 @@ public class Main
         Message msg = new Message("This is a message again");
         MessagePrinter printer = new MessagePrinter();
 
-        printer.writeMessage(msg, "test_msg.txt");
+        // The filename is only passed in to the PrintWriter object.
+//        try (PrintWriter writer = new PrintWriter(new FileWriter("test_msg.txt")))
+
+        // We can change the data output for example. The "power" of dependency inversion.
+        try (PrintWriter writer = new PrintWriter(System.out))
+        {
+//            printer.writeMessage(msg, new JSONFormatter(), writer);
+
+            // We can also change our formatter.
+            printer.writeMessage(msg, new TextFormatter(), writer);
+        }
     }
 
 }

@@ -6,6 +6,7 @@ public class JSONFormatter implements Formatter
 {
     public String format(Message message) throws FormatException
     {
+        // This is used for JSON serialization.
         ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
 
         try
